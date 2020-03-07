@@ -14,10 +14,16 @@ public class JmsConsumer {
 	private static Logger log = LoggerFactory.getLogger(JmsConsumer.class);
 	@Autowired
 	private MessageStorage customerStorage;
-	
-	@JmsListener(destination = "${beanbroker.activemq.queue}", containerFactory="jsaFactory")
+
+	@JmsListener(destination = "beanbroker-queue", containerFactory="jsaFactory")
 	public void receive(Customer customer){
-		log.debug("Recieved Message: " + customer);
-		customerStorage.add(customer);
+		log.info("1111111111111Recieved Message: " + customer);
+//		customerStorage.add(customer);
+	}
+
+	@JmsListener(destination = "board-count-up-queue", containerFactory="jsaFactory")
+	public void erer(Object ob){
+		log.info("22222222 Message: " + ob);
+//		customerStorage.add(customer);
 	}
 }

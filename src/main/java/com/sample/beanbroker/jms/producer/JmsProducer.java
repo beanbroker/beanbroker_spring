@@ -20,7 +20,7 @@ public class JmsProducer {
 	
 	public void send(Customer customer){
 
-		log.debug("send data : {} " , customer.toString());
+		log.info("send data : {} " , customer.toString());
 		jmsTemplate.convertAndSend(queue, customer);
 	}
 }
